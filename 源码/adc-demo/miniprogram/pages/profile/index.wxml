@@ -1,0 +1,80 @@
+<view class="page page-tab me">
+
+  <view class="me-hero">
+    <block wx:if="{{bound}}">
+      <view class="me-row">
+        <view class="me-avatar">{{patient.initial}}</view>
+        <view class="flex-1">
+          <view class="me-name">{{patient.name}}</view>
+          <view class="me-phone">{{patient.phoneMasked}}</view>
+        </view>
+      </view>
+
+      <view class="me-stats">
+        <view class="me-stat" bindtap="goRecords">
+          <text class="me-num">{{stats.visits}}</text>
+          <text class="me-label">演示次数</text>
+        </view>
+        <view class="me-sep"></view>
+        <view class="me-stat" bindtap="goAppointments">
+          <text class="me-num">{{stats.pending}}</text>
+          <text class="me-label">待到诊</text>
+        </view>
+        <view class="me-sep"></view>
+        <view class="me-stat">
+          <text class="me-num">{{stats.spent}}</text>
+          <text class="me-label">累计金额（元）</text>
+        </view>
+      </view>
+    </block>
+
+    <view class="me-guest" wx:else bindtap="goLogin">
+      <view class="me-avatar guest">?</view>
+      <view class="flex-1">
+        <view class="me-name">未登录</view>
+        <view class="me-phone">登录后查看演示预约与档案</view>
+      </view>
+      <view class="me-login-btn">登录</view>
+    </view>
+  </view>
+
+  <view class="menu" wx:if="{{bound}}">
+    <view class="menu-item" bindtap="goRecords">
+      <view class="mi-ico i-file"></view>
+      <text class="mi-text">演示记录与结算单</text>
+      <view class="mi-arrow"></view>
+    </view>
+    <view class="menu-item" bindtap="goAppointments">
+      <view class="mi-ico i-clock"></view>
+      <text class="mi-text">我的预约</text>
+      <view class="mi-arrow"></view>
+    </view>
+  </view>
+
+  <view class="menu">
+    <view class="menu-item" bindtap="callClinic">
+      <view class="mi-ico i-phone"></view>
+      <text class="mi-text">演示电话</text>
+      <text class="mi-extra">{{servicePhone}}</text>
+      <view class="mi-arrow"></view>
+    </view>
+    <view class="menu-item" bindtap="goConsent">
+      <view class="mi-ico i-shield"></view>
+      <text class="mi-text">隐私政策与演示须知</text>
+      <view class="mi-arrow"></view>
+    </view>
+    <view class="menu-item" bindtap="goAbout">
+      <view class="mi-ico i-info"></view>
+      <text class="mi-text">关于本演示</text>
+      <text class="mi-extra">v{{version}}</text>
+      <view class="mi-arrow"></view>
+    </view>
+  </view>
+
+  <view class="me-foot">
+    <view class="logout" wx:if="{{bound}}" bindtap="logout">退出登录</view>
+    <view class="reset" wx:if="{{useMock}}" bindtap="resetDemo">重置演示数据</view>
+    <view class="copy">课程作业演示 · 全部数据为模拟</view>
+  </view>
+
+</view>

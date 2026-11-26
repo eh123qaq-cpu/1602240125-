@@ -1,0 +1,10 @@
+<view wx:if="{{type === 'card'}}">
+  <view class="card" wx:for="{{list}}" wx:key="*this">
+    <view class="sk-line sk-title"></view>
+    <view class="sk-line sk-sub"></view>
+    <view class="sk-line sk-body"></view>
+  </view>
+</view>
+<view wx:else>
+  <view class="sk-line sk-row" wx:for="{{list}}" wx:key="*this"></view>
+</view>

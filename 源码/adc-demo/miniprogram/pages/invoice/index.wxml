@@ -1,0 +1,82 @@
+<view class="page iv">
+
+  <skeleton wx:if="{{loading}}" rows="2"></skeleton>
+
+  <empty-state
+    wx:elif="{{error}}"
+    text="结算单不存在或无权查看"
+    sub="请从演示记录中进入"
+    action="演示电话"
+    bind:action="callClinic"
+  ></empty-state>
+
+  <block wx:elif="{{inv}}">
+
+    <!-- 金额头部 -->
+    <view class="iv-hero">
+      <view class="iv-hero-label">本次演示合计</view>
+      <view class="iv-hero-amount"><text class="iv-yen">¥</text>{{inv.totalText}}</view>
+      <view class="iv-hero-status">{{inv.paid ? '已结清' : '待结清 · 演示数据无需支付'}}</view>
+    </view>
+
+    <!-- 明细 -->
+    <view class="card">
+      <view class="card-hd">
+        <text class="card-title">费用明细</text>
+        <text class="card-more">{{inv.lines.length}} 项</text>
+      </view>
+
+      <view class="iv-line" wx:for="{{inv.lines}}" wx:key="line_id">
+        <view class="flex-1">
+          <view class="iv-line-name">{{item.name}}</view>
+          <view class="iv-line-price">{{item.units}} × ¥{{item.priceText}}</view>
+        </view>
+        <view class="iv-line-amt">¥{{item.subtotalText}}</view>
+      </view>
+
+      <view class="iv-total">
+        <text>合计</text>
+        <text class="iv-total-amt">¥{{inv.totalText}}</text>
+      </view>
+    </view>
+
+    <!-- 单据信息 -->
+    <view class="card">
+      <view class="card-hd"><text class="card-title">单据信息</text></view>
+      <view class="row">
+        <text class="row-label">结算单号</text>
+        <view class="row-value mono"><text selectable>{{inv.invoice_no}}</text></view>
+      </view>
+      <view class="row">
+        <text class="row-label">演示日期</text>
+        <text class="row-value">{{inv.biz_date}}</text>
+      </view>
+      <view class="row">
+        <text class="row-label">演示账户</text>
+        <text class="row-value">{{inv.patient_name}}</text>
+      </view>
+      <view class="row">
+        <text class="row-label">接诊牙医</text>
+        <text class="row-value">{{inv.dentist_name}}</text>
+      </view>
+      <view class="row" wx:if="{{inv.clinic_name}}">
+        <text class="row-label">门店</text>
+        <text class="row-value">{{inv.clinic_name}}</text>
+      </view>
+    </view>
+
+    <view class="iv-note">
+      <view class="iv-note-t">说明</view>
+      <view class="iv-note-l">· 本单为演示用模拟结算单，不对应任何真实发票或交易。</view>
+      <view class="iv-note-l">· 单项金额为演示记录中的价格快照，后续改价不影响本单金额。</view>
+      <view class="iv-note-l">· 结算单一旦确认，如需更正须由门店走更正审批，不会直接改动本单。</view>
+    </view>
+
+    <view class="iv-actions">
+      <button class="btn btn-line" bindtap="callClinic">演示电话</button>
+      <button class="btn btn-ghost" open-type="share">分享</button>
+    </view>
+
+  </block>
+
+</view>

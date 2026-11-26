@@ -1,0 +1,9 @@
+{
+  "name": "seedSchedules",
+  "version": "1.0.0",
+  "description": "ADC 牙科连锁出诊排班初始化（只写 schedules）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

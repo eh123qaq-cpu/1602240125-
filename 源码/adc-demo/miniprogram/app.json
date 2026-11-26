@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/booking/index",
+    "pages/appointments/index",
+    "pages/profile/index",
+    "pages/records/index",
+    "pages/invoice/index",
+    "pages/reschedule/index",
+    "pages/clinic/index",
+    "pages/dentist/index",
+    "pages/login/index",
+    "pages/consent/index",
+    "pages/about/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "ADC 课程演示",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F6F8",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8A97A0",
+    "selectedColor": "#0E6E8C",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/home/index", "text": "首页" },
+      { "pagePath": "pages/booking/index", "text": "预约" },
+      { "pagePath": "pages/appointments/index", "text": "我的预约" },
+      { "pagePath": "pages/profile/index", "text": "我的" }
+    ]
+  },
+  "usingComponents": {
+    "empty-state": "/components/empty/index",
+    "status-tag": "/components/status-tag/index",
+    "skeleton": "/components/skeleton/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

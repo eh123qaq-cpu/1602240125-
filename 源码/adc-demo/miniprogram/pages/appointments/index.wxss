@@ -1,0 +1,137 @@
+.ap-page {
+  padding-top: 0;
+}
+
+/* ------------------------------ 筛选 ------------------------------ */
+
+.filters {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  padding: 16rpx 0 20rpx;
+  background: #F4F6F8;
+}
+
+.filter {
+  height: 64rpx;
+  padding: 0 30rpx;
+  border-radius: 32rpx;
+  background: #fff;
+  color: #61707B;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  margin-right: 16rpx;
+  transition: all 0.16s ease;
+}
+
+.filter.on {
+  background: #0E6E8C;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 6rpx 16rpx rgba(14, 110, 140, 0.22);
+}
+
+/* ------------------------------ 卡片 ------------------------------ */
+
+.ap {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(23, 34, 43, 0.05);
+}
+
+.ap-hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #EDF1F3;
+}
+
+.ap-when {
+  display: flex;
+  align-items: baseline;
+}
+
+.ap-date {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #17222B;
+}
+
+.ap-week {
+  font-size: 22rpx;
+  color: #98A4AC;
+  margin-left: 10rpx;
+}
+
+.ap-time {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #0E6E8C;
+  margin-left: 16rpx;
+}
+
+.ap-body {
+  padding: 20rpx 0 8rpx;
+}
+
+.ap-line {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10rpx;
+}
+
+.ap-k {
+  width: 88rpx;
+  flex-shrink: 0;
+  font-size: 24rpx;
+  color: #98A4AC;
+}
+
+.ap-v {
+  flex: 1;
+  font-size: 26rpx;
+  color: #3B4A54;
+  line-height: 1.5;
+}
+
+.ap-note {
+  margin-top: 12rpx;
+  padding: 14rpx 18rpx;
+  background: #F7F9FA;
+  border-radius: 12rpx;
+  font-size: 22rpx;
+  color: #7C8A95;
+  line-height: 1.5;
+}
+
+.ap-foot {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #EDF1F3;
+}
+
+.ap-act {
+  margin-left: 16rpx;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ap-act.btn-danger {
+  background: #fff;
+}
+
+.ap-act.btn-line {
+  background: #fff;
+}
+
+.ap-act.btn-ghost {
+  background: #F4F6F8;
+}

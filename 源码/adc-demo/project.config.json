@@ -1,0 +1,29 @@
+{
+  "description": "ADC 课程演示 · 患者端小程序（云开发）",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "compileType": "miniprogram",
+  "libVersion": "3.5.5",
+  "appid": "wx583ee405799889c2",
+  "projectname": "adc-patient",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "nodeModules": false,
+    "coverView": true,
+    "lazyloadPlaceholderEnable": false,
+    "useCompilerPlugins": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        { "name": "首页", "pathName": "pages/home/index", "query": "", "scene": null },
+        { "name": "预约", "pathName": "pages/booking/index", "query": "", "scene": null },
+        { "name": "登录", "pathName": "pages/login/index", "query": "", "scene": null }
+      ]
+    }
+  }
+}

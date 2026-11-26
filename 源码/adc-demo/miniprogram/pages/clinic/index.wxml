@@ -1,0 +1,52 @@
+<view class="page cl">
+
+  <skeleton wx:if="{{loading}}" rows="2"></skeleton>
+
+  <block wx:elif="{{clinic}}">
+    <view class="cl-hero">
+      <view class="cl-name">{{clinic.name}}</view>
+      <view class="cl-tags">
+        <text class="cl-tag" wx:for="{{clinic.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="cl-intro">{{clinic.intro}}</view>
+    </view>
+
+    <view class="card">
+      <view class="row" bindtap="navTo">
+        <text class="row-label">地址</text>
+        <view class="row-value row-arrow">{{clinic.address}}</view>
+      </view>
+      <view class="row" bindtap="callClinic">
+        <text class="row-label">电话</text>
+        <view class="row-value row-arrow">{{clinic.phone}}</view>
+      </view>
+      <view class="row">
+        <text class="row-label">营业时间</text>
+        <text class="row-value">{{clinic.hours}}</text>
+      </view>
+      <view class="row" wx:if="{{clinic.area}}">
+        <text class="row-label">门诊面积</text>
+        <text class="row-value">{{clinic.area}} ㎡</text>
+      </view>
+    </view>
+
+    <view class="section-title">出诊牙医</view>
+
+    <view class="den" wx:for="{{dentists}}" wx:key="_id" data-id="{{item._id}}" bindtap="openDentist">
+      <view class="den-avatar">{{item.initial}}</view>
+      <view class="flex-1">
+        <view class="den-name">{{item.name}}<text class="den-title">{{item.title}}</text></view>
+        <view class="den-qual">{{item.qual_names[0] || '演示资质'}} · 从业 {{item.years}} 年</view>
+      </view>
+      <view class="den-arrow"></view>
+    </view>
+
+    <empty-state wx:if="{{!dentists.length}}" text="该门店暂未维护出诊牙医"></empty-state>
+
+    <view class="cl-actions">
+      <button class="btn btn-ghost" bindtap="navTo">导航到店</button>
+      <button class="btn btn-main" bindtap="goBooking">预约该门店</button>
+    </view>
+  </block>
+
+</view>

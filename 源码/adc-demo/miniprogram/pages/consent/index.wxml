@@ -1,0 +1,19 @@
+<view class="page cs">
+
+  <view class="cs-hd">
+    <view class="cs-title">{{appName}} 隐私政策与演示须知</view>
+    <view class="cs-ver">版本 {{version}}　生效日期 2026-11-01</view>
+  </view>
+
+  <view class="cs-block" wx:for="{{sections}}" wx:key="t">
+    <view class="cs-t">{{item.t}}</view>
+    <view class="cs-p" wx:for="{{item.l}}" wx:for-item="p" wx:key="*this">{{p}}</view>
+  </view>
+
+  <view class="cs-contact" bindtap="callClinic">
+    案例演示电话 {{phone}}（虚构）　›
+  </view>
+
+  <button class="btn btn-main" bindtap="agree" style="margin-top:32rpx">我已阅读</button>
+
+</view>

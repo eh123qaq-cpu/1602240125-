@@ -1,0 +1,121 @@
+<view class="page page-tab home">
+
+  <view style="margin:16rpx 24rpx 0;padding:16rpx 20rpx;border-radius:12rpx;background:#FFF4E0;color:#8A5A00;font-size:24rpx;line-height:1.5;">
+    课程作业演示 · 全部为模拟数据 · 不提供真实预约或医疗服务
+  </view>
+
+  <!-- 顶部问候 -->
+  <view class="hero">
+    <view class="hero-row">
+      <view class="flex-1">
+        <view class="hero-greet">{{greet}}<text wx:if="{{bound}}">，{{patient.name}}</text></view>
+        <view class="hero-sub" wx:if="{{bound}}">你的演示档案已就绪</view>
+        <view class="hero-sub" wx:else>登录后查看演示预约、演示记录与结算单</view>
+      </view>
+      <view class="hero-login" wx:if="{{!bound}}" bindtap="goLogin">登录</view>
+    </view>
+  </view>
+
+  <!-- 下次演示预约 -->
+  <view class="next-card" wx:if="{{next}}" bindtap="openNext">
+    <view class="next-date">
+      <view class="next-day">{{next.dayText}}</view>
+      <view class="next-md">{{next.dateText}}</view>
+    </view>
+    <view class="next-body">
+      <view class="next-title">{{next.start}} · {{next.dentist_name}} 医生</view>
+      <view class="next-clinic">{{next.clinic_name}}</view>
+      <view class="next-tags">
+        <status-tag status="{{next.status}}"></status-tag>
+        <text class="next-cd" wx:if="{{next.countdown}}">{{next.countdown}}</text>
+      </view>
+    </view>
+    <view class="next-arrow"></view>
+  </view>
+
+  <view class="next-empty" wx:elif="{{bound}}" bindtap="goBooking">
+    <view class="flex-1">
+      <view class="ne-title">还没有待进行的演示预约</view>
+      <view class="ne-sub">查看演示项目与可约时段</view>
+    </view>
+    <view class="ne-cta">去预约</view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="quick">
+    <view class="quick-item tap" bindtap="goBooking">
+      <view class="quick-ico i-book"></view>
+      <text class="quick-text">立即预约</text>
+    </view>
+    <view class="quick-item tap" bindtap="goAppointments">
+      <view class="quick-ico i-appt"></view>
+      <text class="quick-text">我的预约</text>
+    </view>
+    <view class="quick-item tap" bindtap="goRecords">
+      <view class="quick-ico i-record"></view>
+      <text class="quick-text">演示记录</text>
+    </view>
+    <view class="quick-item tap" bindtap="callClinic">
+      <view class="quick-ico i-phone"></view>
+      <text class="quick-text">演示电话</text>
+    </view>
+  </view>
+
+  <!-- 演示项目 -->
+  <view class="card-hd" style="margin-top:8rpx">
+    <text class="card-title">演示项目</text>
+    <text class="card-more">价格以门店公示为准</text>
+  </view>
+  <scroll-view class="svc-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+    <view class="svc" wx:for="{{services}}" wx:key="id" data-name="{{item.name}}" bindtap="bookService">
+      <view class="svc-name">{{item.name}}</view>
+      <view class="svc-price"><text class="svc-yen">¥</text>{{item.price}}<text class="svc-unit">起</text></view>
+      <view class="svc-go">预约 ›</view>
+    </view>
+  </scroll-view>
+
+  <!-- 门店 -->
+  <view class="card-hd" style="margin-top:32rpx">
+    <text class="card-title">我们的门店</text>
+    <text class="card-more">{{clinics.length}} 家</text>
+  </view>
+
+  <skeleton wx:if="{{loading}}" rows="2"></skeleton>
+
+  <view class="clinic" wx:for="{{clinics}}" wx:key="_id" data-id="{{item._id}}" bindtap="openClinic">
+    <view class="clinic-top">
+      <view class="flex-1">
+        <view class="clinic-name">{{item.name}}</view>
+        <view class="clinic-addr">{{item.address}}</view>
+      </view>
+      <view class="clinic-arrow"></view>
+    </view>
+    <view class="clinic-tags">
+      <text class="tag tag-blue" wx:for="{{item.tags}}" wx:for-item="t" wx:key="*this">{{t}}</text>
+    </view>
+    <view class="clinic-foot">
+      <text class="clinic-hours">营业 {{item.hours}}</text>
+      <view
+        class="clinic-nav tap"
+        data-lat="{{item.lat}}"
+        data-lng="{{item.lng}}"
+        data-name="{{item.name}}"
+        data-address="{{item.address}}"
+        catchtap="navTo"
+      >导航</view>
+    </view>
+  </view>
+
+  <!-- 演示说明 -->
+  <view class="tip">
+    <view class="tip-title">关于本演示</view>
+    <view class="tip-line">· 门店、牙医、患者与价格均为课程案例的模拟数据</view>
+    <view class="tip-line">· 预约、到诊、开单与结算仅用于展示业务流程</view>
+    <view class="tip-line">· 不产生真实订单、真实发票或任何医疗记录</view>
+  </view>
+
+  <view class="foot-phone" bindtap="callClinic">
+    案例演示电话 {{servicePhone}}（虚构号码，请勿拨打）
+  </view>
+
+</view>

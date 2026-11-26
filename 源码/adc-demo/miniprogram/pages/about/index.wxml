@@ -1,0 +1,44 @@
+<view class="page ab">
+
+  <view class="ab-hero">
+    <view class="ab-logo">ADC</view>
+    <view class="ab-name">{{appName}}</view>
+    <view class="ab-slogan">课程作业 · 业务流程演示</view>
+  </view>
+
+  <view class="card">
+    <view class="ab-p">
+      本项目为「安德鲁牙科连锁店：数据建模」课程作业的系统演示，用一套模拟数据展示预约、
+      开单、结算与成本分摊的完整业务流程及数据模型。
+    </view>
+    <view class="ab-p">
+      页面中的门店、牙医、患者、价格与订单全部为虚构演示数据，不面向真实患者，不产生真实预约、
+      诊疗或交易，也不收集用于医疗目的的真实健康信息。
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="row" bindtap="callClinic">
+      <text class="row-label">案例演示电话</text>
+      <view class="row-value row-arrow">{{phone}}</view>
+    </view>
+    <view class="row">
+      <text class="row-label">案例服务时间</text>
+      <text class="row-value">{{hours}}</text>
+    </view>
+    <view class="row" bindtap="goConsent">
+      <text class="row-label">隐私政策</text>
+      <view class="row-value row-arrow">查看</view>
+    </view>
+    <view class="row">
+      <text class="row-label">当前版本</text>
+      <view class="row-value">{{version}}{{useMock ? '（本地演示数据）' : ''}}</view>
+    </view>
+  </view>
+
+  <view class="ab-foot">
+    <view>本小程序仅用于课程演示，不提供在线诊断、处方、互联网诊疗或任何真实医疗服务</view>
+    <view>示例电话与时段为虚构内容，请勿据此联系或就诊</view>
+  </view>
+
+</view>

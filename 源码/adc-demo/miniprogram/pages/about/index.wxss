@@ -1,0 +1,55 @@
+.ab {
+  padding-top: 40rpx;
+}
+
+.ab-hero {
+  text-align: center;
+  padding: 24rpx 0 48rpx;
+}
+
+.ab-logo {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 36rpx;
+  background: linear-gradient(135deg, #12819F 0%, #0A5468 100%);
+  color: #fff;
+  font-size: 44rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24rpx;
+  box-shadow: 0 12rpx 28rpx rgba(14, 110, 140, 0.26);
+}
+
+.ab-name {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.ab-slogan {
+  font-size: 24rpx;
+  color: #98A4AC;
+  margin-top: 8rpx;
+  letter-spacing: 2rpx;
+}
+
+.ab-p {
+  font-size: 26rpx;
+  color: #4E5D68;
+  line-height: 1.85;
+  margin-bottom: 16rpx;
+}
+
+.ab-p:last-child {
+  margin-bottom: 0;
+}
+
+.ab-foot {
+  text-align: center;
+  font-size: 21rpx;
+  color: #A9B4BB;
+  line-height: 1.9;
+  padding: 32rpx 20rpx;
+}

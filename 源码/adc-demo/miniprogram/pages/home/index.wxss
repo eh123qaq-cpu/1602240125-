@@ -1,0 +1,355 @@
+.home {
+  padding-top: 0;
+}
+
+/* ------------------------------ 顶部 ------------------------------ */
+
+.hero {
+  margin: 0 -28rpx 28rpx;
+  padding: 40rpx 32rpx 84rpx;
+  background: linear-gradient(135deg, #0E6E8C 0%, #1587A6 100%);
+  border-radius: 0 0 36rpx 36rpx;
+}
+
+.hero-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero-greet {
+  font-size: 42rpx;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5rpx;
+}
+
+.hero-sub {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-login {
+  flex-shrink: 0;
+  height: 60rpx;
+  padding: 0 30rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1rpx solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* ------------------------------ 下次就诊 ------------------------------ */
+
+.next-card {
+  display: flex;
+  align-items: center;
+  margin-top: -64rpx;
+  padding: 28rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  box-shadow: 0 10rpx 32rpx rgba(14, 110, 140, 0.14);
+}
+
+.next-date {
+  width: 132rpx;
+  flex-shrink: 0;
+  text-align: center;
+  padding-right: 24rpx;
+  border-right: 1rpx solid #EDF1F3;
+}
+
+.next-day {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #0E6E8C;
+  line-height: 1.2;
+}
+
+.next-md {
+  font-size: 22rpx;
+  color: #98A4AC;
+  margin-top: 6rpx;
+}
+
+.next-body {
+  flex: 1;
+  min-width: 0;
+  padding-left: 24rpx;
+}
+
+.next-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #17222B;
+}
+
+.next-clinic {
+  font-size: 24rpx;
+  color: #7C8A95;
+  margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.next-tags {
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx;
+}
+
+.next-cd {
+  font-size: 22rpx;
+  color: #BF4331;
+  margin-left: 12rpx;
+}
+
+.next-arrow {
+  width: 14rpx;
+  height: 14rpx;
+  border-right: 3rpx solid #C6CFD5;
+  border-bottom: 3rpx solid #C6CFD5;
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+
+.next-empty {
+  display: flex;
+  align-items: center;
+  margin-top: -64rpx;
+  padding: 32rpx 28rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  box-shadow: 0 10rpx 32rpx rgba(14, 110, 140, 0.12);
+}
+
+.ne-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #17222B;
+}
+
+.ne-sub {
+  font-size: 22rpx;
+  color: #98A4AC;
+  margin-top: 6rpx;
+}
+
+.ne-cta {
+  flex-shrink: 0;
+  height: 64rpx;
+  padding: 0 32rpx;
+  border-radius: 32rpx;
+  background: #0E6E8C;
+  color: #fff;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* ------------------------------ 快捷入口 ------------------------------ */
+
+.quick {
+  display: flex;
+  padding: 32rpx 8rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(23, 34, 43, 0.05);
+}
+
+.quick-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-ico {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 28rpx;
+  background-color: #EAF3F6;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 46rpx 46rpx;
+  margin-bottom: 12rpx;
+}
+
+.quick-text {
+  font-size: 24rpx;
+  color: #4E5D68;
+}
+
+.i-book {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='5' width='17' height='15.5' rx='2.5'/%3E%3Cpath d='M8 3v4M16 3v4M3.5 10h17'/%3E%3Cpath d='M12 13v5M9.5 15.5h5' stroke-width='1.6'/%3E%3C/svg%3E");
+}
+
+.i-appt {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath d='M12 7.5V12l3.2 2'/%3E%3C/svg%3E");
+}
+
+.i-record {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3.5h8.5L19 8v12.5H6z'/%3E%3Cpath d='M14 3.5V8h4.5M9 12h6M9 16h4'/%3E%3C/svg%3E");
+}
+
+.i-phone {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------ 诊疗项目 ------------------------------ */
+
+/* scroll-view 横向滚动必须给定高度，否则卡片会被压扁裁切 */
+.svc-scroll {
+  display: flex;
+  white-space: nowrap;
+  height: 222rpx;
+  margin: 0 -28rpx;
+  padding: 0 28rpx 8rpx;
+  box-sizing: border-box;
+}
+
+.svc {
+  display: inline-flex;
+  flex-direction: column;
+  width: 220rpx;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 26rpx 24rpx;
+  margin-right: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(23, 34, 43, 0.05);
+}
+
+.svc-name {
+  font-size: 26rpx;
+  color: #17222B;
+  font-weight: 500;
+}
+
+.svc-price {
+  margin-top: 12rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #BF4331;
+}
+
+.svc-yen {
+  font-size: 22rpx;
+  margin-right: 2rpx;
+}
+
+.svc-unit {
+  font-size: 20rpx;
+  color: #98A4AC;
+  margin-left: 4rpx;
+  font-weight: 400;
+}
+
+.svc-go {
+  margin-top: 16rpx;
+  font-size: 22rpx;
+  color: #0E6E8C;
+}
+
+/* ------------------------------ 门店 ------------------------------ */
+
+.clinic {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(23, 34, 43, 0.05);
+}
+
+.clinic-top {
+  display: flex;
+  align-items: center;
+}
+
+.clinic-name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.clinic-addr {
+  font-size: 24rpx;
+  color: #7C8A95;
+  margin-top: 8rpx;
+  line-height: 1.5;
+}
+
+.clinic-arrow {
+  width: 14rpx;
+  height: 14rpx;
+  border-right: 3rpx solid #C6CFD5;
+  border-bottom: 3rpx solid #C6CFD5;
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
+.clinic-tags {
+  display: flex;
+  margin-top: 16rpx;
+  flex-wrap: wrap;
+}
+
+.clinic-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #EDF1F3;
+}
+
+.clinic-hours {
+  font-size: 22rpx;
+  color: #98A4AC;
+}
+
+.clinic-nav {
+  height: 56rpx;
+  padding: 0 28rpx;
+  border-radius: 28rpx;
+  border: 1rpx solid #B9D6DF;
+  color: #0E6E8C;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* ------------------------------ 提示 / 页脚 ------------------------------ */
+
+.tip {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-top: 4rpx;
+}
+
+.tip-title {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #4E5D68;
+  margin-bottom: 12rpx;
+}
+
+.tip-line {
+  font-size: 24rpx;
+  color: #8A97A0;
+  line-height: 1.9;
+}
+
+.foot-phone {
+  text-align: center;
+  font-size: 22rpx;
+  color: #A9B4BB;
+  padding: 40rpx 0 8rpx;
+}

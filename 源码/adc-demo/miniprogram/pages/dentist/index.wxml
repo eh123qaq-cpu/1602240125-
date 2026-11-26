@@ -1,0 +1,41 @@
+<view class="page dt">
+
+  <skeleton wx:if="{{loading}}" rows="2"></skeleton>
+
+  <block wx:elif="{{dentist}}">
+    <view class="dt-hero">
+      <view class="dt-avatar">{{dentist.initial}}</view>
+      <view class="dt-name">{{dentist.name}}</view>
+      <view class="dt-title">{{dentist.title}} · 从业 {{dentist.years}} 年</view>
+      <view class="dt-quals">
+        <text class="dt-q" wx:for="{{dentist.qual_names}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-hd"><text class="card-title">专业简介</text></view>
+      <view class="dt-intro">{{dentist.intro || '暂无简介'}}</view>
+      <view class="row" style="margin-top:12rpx">
+        <text class="row-label">工号</text>
+        <text class="row-value mono">{{dentist.emp_no}}</text>
+      </view>
+    </view>
+
+    <view class="section-title">出诊门店</view>
+
+    <view class="dt-clinic" wx:for="{{clinics}}" wx:key="_id" data-id="{{item._id}}" bindtap="openClinic">
+      <view class="flex-1">
+        <view class="dt-c-name">{{item.name}}</view>
+        <view class="dt-c-addr">{{item.address}}</view>
+      </view>
+      <view class="dt-c-arrow"></view>
+    </view>
+
+    <view class="dt-note">
+      牙医在多家门店轮转出诊，预约时以门店可约时段为准。
+    </view>
+
+    <button class="btn btn-main" bindtap="goBooking" style="margin-top:24rpx">预约该牙医</button>
+  </block>
+
+</view>

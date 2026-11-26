@@ -1,0 +1,51 @@
+.cs {
+  padding-top: 32rpx;
+}
+
+.cs-hd {
+  margin-bottom: 32rpx;
+}
+
+.cs-title {
+  font-size: 38rpx;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cs-ver {
+  font-size: 22rpx;
+  color: #A9B4BB;
+  margin-top: 10rpx;
+}
+
+.cs-block {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.cs-t {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #0A5468;
+  margin-bottom: 12rpx;
+}
+
+.cs-p {
+  font-size: 25rpx;
+  color: #4E5D68;
+  line-height: 1.85;
+  margin-bottom: 10rpx;
+}
+
+.cs-p:last-child {
+  margin-bottom: 0;
+}
+
+.cs-contact {
+  font-size: 26rpx;
+  color: #0E6E8C;
+  text-align: center;
+  padding: 24rpx 0;
+}

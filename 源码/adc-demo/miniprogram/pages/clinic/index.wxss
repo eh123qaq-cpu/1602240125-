@@ -1,0 +1,103 @@
+.cl {
+  padding-top: 24rpx;
+}
+
+.cl-hero {
+  background: linear-gradient(135deg, #0E6E8C 0%, #1587A6 100%);
+  border-radius: 24rpx;
+  padding: 36rpx 32rpx;
+  margin-bottom: 24rpx;
+}
+
+.cl-name {
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16rpx;
+}
+
+.cl-tag {
+  font-size: 22rpx;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 8rpx;
+  padding: 6rpx 14rpx;
+  margin: 0 12rpx 10rpx 0;
+}
+
+.cl-intro {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+  margin-top: 8rpx;
+}
+
+.den {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 26rpx 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(23, 34, 43, 0.05);
+}
+
+.den-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: #E7F1F5;
+  color: #0E6E8C;
+  font-size: 32rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 22rpx;
+  flex-shrink: 0;
+}
+
+.den-name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.den-title {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #0E6E8C;
+  background: #E7F1F5;
+  border-radius: 8rpx;
+  padding: 2rpx 12rpx;
+  margin-left: 12rpx;
+}
+
+.den-qual {
+  font-size: 23rpx;
+  color: #98A4AC;
+  margin-top: 8rpx;
+}
+
+.den-arrow {
+  width: 14rpx;
+  height: 14rpx;
+  border-right: 3rpx solid #C6CFD5;
+  border-bottom: 3rpx solid #C6CFD5;
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+}
+
+.cl-actions {
+  display: flex;
+  gap: 20rpx;
+  padding: 24rpx 0;
+}
+
+.cl-actions .btn {
+  flex: 1;
+}

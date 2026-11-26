@@ -1,0 +1,187 @@
+<view class="page book">
+
+  <view class="ver-banner">ADC 课程演示 {{versionText}} · 提交预约前需核对确认</view>
+
+  <!-- 门店 -->
+  <view class="seg">
+    <view
+      class="seg-item {{clinicIndex === index ? 'on' : ''}}"
+      wx:for="{{clinics}}"
+      wx:key="_id"
+      data-i="{{index}}"
+      bindtap="onClinic"
+    >
+      <text class="seg-name">{{item.short_name}}</text>
+      <text class="seg-sub">{{item.tags[0] || '演示门店'}}</text>
+    </view>
+  </view>
+
+  <!-- 日期 -->
+  <scroll-view class="date-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+    <view
+      class="date {{activeDate === item.date ? 'on' : ''}}"
+      wx:for="{{dates}}"
+      wx:key="date"
+      data-date="{{item.date}}"
+      bindtap="onDate"
+    >
+      <text class="date-week">{{item.week}}</text>
+      <text class="date-day">{{item.day}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 牙医 -->
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">选择牙医</text>
+      <text class="card-more">{{dateLabel}} · 共 {{slotTotal}} 个空位</text>
+    </view>
+
+    <skeleton wx:if="{{loadingSlots}}" type="line" rows="2"></skeleton>
+
+    <block wx:elif="{{groups.length}}">
+      <scroll-view class="den-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+        <view
+          class="den {{dentistIndex === index ? 'on' : ''}}"
+          wx:for="{{groups}}"
+          wx:key="dentist_id"
+          data-i="{{index}}"
+          bindtap="onDentist"
+        >
+          <view class="den-avatar">{{item.initial}}</view>
+          <view class="den-info">
+            <view class="den-name">{{item.dentist_name}}</view>
+            <view class="den-meta">{{item.title || '医师'}} · {{item.free}} 空位</view>
+          </view>
+        </view>
+      </scroll-view>
+
+      <view class="den-quals" wx:if="{{groups[dentistIndex].qual_names.length}}">
+        <text class="tag tag-blue" wx:for="{{groups[dentistIndex].qual_names}}" wx:key="*this">{{item}}</text>
+      </view>
+
+      <!-- 上午 -->
+      <view class="period" wx:if="{{morning.length}}">
+        <view class="period-title">上午</view>
+        <view class="slots">
+          <view
+            class="slot {{selected && selected.start === item.start && selected.dentistId === activeDentistId ? 'on' : ''}}"
+            wx:for="{{morning}}"
+            wx:key="start"
+            data-start="{{item.start}}"
+            data-period="上午"
+            bindtap="pickSlot"
+          >{{item.start}}</view>
+        </view>
+      </view>
+
+      <!-- 下午 -->
+      <view class="period" wx:if="{{afternoon.length}}">
+        <view class="period-title">下午</view>
+        <view class="slots">
+          <view
+            class="slot {{selected && selected.start === item.start && selected.dentistId === activeDentistId ? 'on' : ''}}"
+            wx:for="{{afternoon}}"
+            wx:key="start"
+            data-start="{{item.start}}"
+            data-period="下午"
+            bindtap="pickSlot"
+          >{{item.start}}</view>
+        </view>
+      </view>
+
+      <view class="full" wx:if="{{!morning.length && !afternoon.length}}">
+        该牙医当天没有可约时段（约满 / 未排班 / 时间已过），换一位或换一天
+      </view>
+    </block>
+
+    <empty-state
+      wx:elif="{{!loadingSlots}}"
+      text="当天没有可约时段"
+      sub="可以换一天，或直接致电门店"
+      action="致电门店"
+      bind:action="callClinic"
+    ></empty-state>
+  </view>
+
+  <!-- 预约人 -->
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">预约人</text>
+      <text class="card-more">{{patient.phoneMasked}}</text>
+    </view>
+    <view class="patient">
+      <view class="p-avatar">{{patient.name}}</view>
+      <view class="flex-1">
+        <view class="p-name">{{patient.name}}</view>
+        <view class="p-sub">档案与本人手机号一致，到店出示即可</view>
+      </view>
+    </view>
+
+    <picker mode="selector" range="{{treatments}}" range-key="name" value="{{needIndex}}" bindchange="onNeed">
+      <view class="field row-arrow">
+        <text class="field-label">需求备注</text>
+        <text class="field-input {{needText ? '' : 'is-ph'}}">{{needText || '选填，如备注信息'}}</text>
+      </view>
+    </picker>
+
+    <view class="field" style="align-items:flex-start">
+      <text class="field-label" style="padding-top:6rpx">特殊需求</text>
+      <textarea
+        class="special"
+        placeholder="如：怕疼、行动不便、需要家属陪同"
+        placeholder-class="field-input-placeholder"
+        value="{{special}}"
+        bindinput="onSpecial"
+        maxlength="80"
+        auto-height
+      ></textarea>
+    </view>
+  </view>
+
+  <view class="notice">
+    提交时系统会再次校验该时段是否被占用；预约成功后可在「我的预约」自助改约或取消。
+  </view>
+
+  <!-- 底部提交 -->
+  <view class="fixed-bar">
+    <view class="fixed-bar-info">
+      <block wx:if="{{selected}}">
+        <view class="bar-slot">{{selected.start}}</view>
+        <view class="bar-sub">{{selected.dentistName}} 医生</view>
+      </block>
+      <block wx:else>
+        <view class="bar-empty">请选择时段</view>
+      </block>
+    </view>
+    <button class="btn btn-main" bindtap="submit" disabled="{{!selected || submitting}}">
+      {{submitting ? '提交中…' : '核对并确认预约'}}
+    </button>
+  </view>
+
+  <!-- 预约信息核对：确认前不提交 -->
+  <view class="mask" wx:if="{{confirming}}" bindtap="closeConfirm" catchtouchmove="noop">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-hd">
+        <text class="sheet-title">核对预约信息</text>
+        <text class="sheet-sub">确认无误后再提交，提交时系统会再次校验该时段</text>
+      </view>
+      <view class="sheet-rows">
+        <view class="sheet-row"><text class="sheet-k">门店</text><text class="sheet-v">{{confirmInfo.clinicName}}</text></view>
+        <view class="sheet-row"><text class="sheet-k">日期</text><text class="sheet-v">{{confirmInfo.dateText}}</text></view>
+        <view class="sheet-row"><text class="sheet-k">时段</text><text class="sheet-v strong">{{confirmInfo.timeText}}</text></view>
+        <view class="sheet-row"><text class="sheet-k">牙医</text><text class="sheet-v">{{confirmInfo.dentistText}}</text></view>
+        <view class="sheet-row"><text class="sheet-k">需求备注</text><text class="sheet-v">{{confirmInfo.needText}}</text></view>
+        <view class="sheet-row"><text class="sheet-k">特殊需求</text><text class="sheet-v">{{confirmInfo.specialText}}</text></view>
+        <view class="sheet-row"><text class="sheet-k">预约人</text><text class="sheet-v">{{confirmInfo.patientText}}</text></view>
+      </view>
+      <view class="sheet-btns">
+        <button class="btn btn-ghost" bindtap="closeConfirm" disabled="{{submitting}}">返回修改</button>
+        <button class="btn btn-main" bindtap="confirmSubmit" disabled="{{submitting}}">
+          {{submitting ? '提交中…' : '确认提交'}}
+        </button>
+      </view>
+    </view>
+  </view>
+
+</view>

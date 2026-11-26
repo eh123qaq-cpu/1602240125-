@@ -1,0 +1,197 @@
+.me {
+  padding-top: 0;
+}
+
+/* ------------------------------ 顶部 ------------------------------ */
+
+.me-hero {
+  margin: 0 -28rpx 28rpx;
+  padding: 36rpx 32rpx 40rpx;
+  background: linear-gradient(135deg, #0E6E8C 0%, #1587A6 100%);
+  border-radius: 0 0 36rpx 36rpx;
+}
+
+.me-row,
+.me-guest {
+  display: flex;
+  align-items: center;
+}
+
+.me-avatar {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.me-avatar.guest {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.me-name {
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.me-phone {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.76);
+  margin-top: 6rpx;
+}
+
+.me-login-btn {
+  height: 64rpx;
+  padding: 0 36rpx;
+  border-radius: 32rpx;
+  background: #fff;
+  color: #0E6E8C;
+  font-size: 26rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.me-stats {
+  display: flex;
+  align-items: center;
+  margin-top: 36rpx;
+  padding-top: 28rpx;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+
+.me-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.me-num {
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.me-label {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 6rpx;
+}
+
+.me-sep {
+  width: 1rpx;
+  height: 48rpx;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ------------------------------ 菜单 ------------------------------ */
+
+.menu {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 0 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(23, 34, 43, 0.05);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  height: 104rpx;
+  border-bottom: 1rpx solid #EDF1F3;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.mi-ico {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 20rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40rpx 40rpx;
+  flex-shrink: 0;
+}
+
+.mi-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #17222B;
+}
+
+.mi-extra {
+  font-size: 24rpx;
+  color: #98A4AC;
+  margin-right: 8rpx;
+}
+
+.mi-arrow {
+  width: 14rpx;
+  height: 14rpx;
+  border-right: 3rpx solid #C6CFD5;
+  border-bottom: 3rpx solid #C6CFD5;
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+}
+
+.i-file {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3.5h8.5L19 8v12.5H6z'/%3E%3Cpath d='M14 3.5V8h4.5M9 12h6M9 16h4'/%3E%3C/svg%3E");
+}
+
+.i-clock {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath d='M12 7.5V12l3.2 2'/%3E%3C/svg%3E");
+}
+
+.i-phone {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z'/%3E%3C/svg%3E");
+}
+
+.i-shield {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.2 19 6v6c0 4.2-2.9 7.6-7 8.8-4.1-1.2-7-4.6-7-8.8V6z'/%3E%3Cpath d='M9.2 12.2 11.4 14.4l3.8-4'/%3E%3C/svg%3E");
+}
+
+.i-info {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E6E8C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath d='M12 11v5.5M12 7.8v.6'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------ 底部 ------------------------------ */
+
+.me-foot {
+  padding: 24rpx 0 40rpx;
+  text-align: center;
+}
+
+.logout {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  color: #BF4331;
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.reset {
+  font-size: 24rpx;
+  color: #A9B4BB;
+  padding: 12rpx 0;
+}
+
+.copy {
+  font-size: 20rpx;
+  color: #C1CAD0;
+  margin-top: 24rpx;
+}

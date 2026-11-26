@@ -1,0 +1,104 @@
+<view class="page rec">
+
+  <skeleton wx:if="{{loading}}" rows="2"></skeleton>
+
+  <block wx:elif="{{bound}}">
+
+    <!-- 档案 -->
+    <view class="card">
+      <view class="card-hd">
+        <text class="card-title">我的演示档案</text>
+        <text class="card-more" bindtap="goProfile">编辑 ›</text>
+      </view>
+      <view class="pf-row">
+        <text class="pf-k">姓名</text>
+        <text class="pf-v">{{patient.name}}</text>
+      </view>
+      <view class="pf-row">
+        <text class="pf-k">手机号</text>
+        <text class="pf-v">{{patient.phone}}</text>
+      </view>
+      <view class="pf-row">
+        <text class="pf-k">出生日期</text>
+        <text class="pf-v">{{patient.dob || '未登记'}}</text>
+      </view>
+      <view class="pf-row">
+        <text class="pf-k">邮箱</text>
+        <text class="pf-v">{{patient.email || '未填写'}}</text>
+      </view>
+
+      <view class="alg-hd">
+        <text class="alg-title">备注标签</text>
+        <text class="alg-add" bindtap="addAllergy">+ 登记</text>
+      </view>
+
+      <view class="alg-list" wx:if="{{allergies.length}}">
+        <view
+          class="alg {{item.confirmed ? 'ok' : 'wait'}}"
+          wx:for="{{allergies}}"
+          wx:key="name"
+          data-name="{{item.name}}"
+          bindtap="removeAllergy"
+        >
+          <text>{{item.name}}</text>
+          <text class="alg-state">{{item.confirmed ? '已核实' : '待核实'}}</text>
+        </view>
+      </view>
+      <view class="alg-empty" wx:else>未登记备注标签，可在演示中补充。</view>
+    </view>
+
+    <!-- 演示记录 -->
+    <view class="section-title">演示记录（{{visits.length}}）</view>
+
+    <empty-state
+      wx:if="{{visits.length === 0}}"
+      text="还没有演示记录"
+      sub="完成一次演示流程后，明细会出现在这里"
+      action="去预约"
+      bind:action="goBooking"
+    ></empty-state>
+
+    <view class="tl" wx:if="{{visits.length}}">
+      <view class="tl-item" wx:for="{{visits}}" wx:key="_id">
+        <view class="tl-dot"></view>
+        <view class="tl-card">
+          <view class="tl-hd">
+            <text class="tl-date">{{item.dateText}}</text>
+            <status-tag label="{{item.stateText}}" tone="{{item.stateTone}}"></status-tag>
+          </view>
+          <view class="tl-meta">{{item.dentist_name}} 医生{{item.special_need ? ' · ' + item.special_need : ''}}</view>
+          <view class="tl-no mono">{{item.visit_no}}</view>
+
+          <view class="tl-lines" wx:if="{{item.lines.length}}">
+            <view class="tl-line" wx:for="{{item.lines}}" wx:for-item="ln" wx:key="_id">
+              <text class="tl-line-name">{{ln.name}}</text>
+              <text class="tl-line-unit">×{{ln.units}}</text>
+              <text class="tl-line-amt">¥{{ln.subtotalText}}</text>
+            </view>
+            <view class="tl-total">
+              <text>本次合计</text>
+              <text class="tl-total-amt">¥{{item.totalText}}</text>
+            </view>
+          </view>
+
+          <view class="tl-foot">
+            <view class="tl-inv" wx:if="{{item.invoice}}" data-id="{{item.invoice._id}}" bindtap="openInvoice">
+              查看结算单 {{item.invoice.invoice_no}} ›
+            </view>
+            <view class="tl-inv wait" wx:else>牙医尚未签署确认，结算单暂未生成</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </block>
+
+  <empty-state
+    wx:else
+    text="登录后查看演示记录"
+    sub="明细、备注标签与结算单都会同步到这里"
+    action="去登录"
+    bind:action="goLogin"
+  ></empty-state>
+
+</view>

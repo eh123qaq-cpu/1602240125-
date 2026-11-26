@@ -1,0 +1,175 @@
+.rs {
+  padding-bottom: 240rpx;
+}
+
+.cur {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 28rpx;
+  border-left: 6rpx solid #0E6E8C;
+}
+
+.cur-label {
+  font-size: 22rpx;
+  color: #98A4AC;
+}
+
+.cur-main {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #17222B;
+  margin-top: 8rpx;
+}
+
+.cur-sub {
+  font-size: 24rpx;
+  color: #7C8A95;
+  margin-top: 6rpx;
+}
+
+.cur-tip {
+  font-size: 22rpx;
+  color: #A9B4BB;
+  margin-top: 12rpx;
+}
+
+.date-scroll {
+  display: flex;
+  white-space: nowrap;
+  margin: 0 -28rpx 24rpx;
+  padding: 4rpx 28rpx 8rpx;
+}
+
+.date {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 104rpx;
+  height: 124rpx;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-right: 16rpx;
+  border: 2rpx solid transparent;
+}
+
+.date.on {
+  background: linear-gradient(160deg, #12819F, #0A5468);
+  box-shadow: 0 8rpx 20rpx rgba(14, 110, 140, 0.26);
+}
+
+.date-week {
+  font-size: 22rpx;
+  color: #98A4AC;
+}
+
+.date-day {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #17222B;
+  margin-top: 6rpx;
+}
+
+.date.on .date-week,
+.date.on .date-day {
+  color: #fff;
+}
+
+.den-scroll {
+  display: flex;
+  white-space: nowrap;
+  margin: 0 -32rpx;
+  padding: 0 32rpx;
+}
+
+.den {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 16rpx 20rpx;
+  border-radius: 18rpx;
+  margin-right: 16rpx;
+  border: 2rpx solid #EDF1F3;
+  background: #FBFCFD;
+}
+
+.den.on {
+  border-color: #0E6E8C;
+  background: #F2FAFC;
+}
+
+.den-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #E7F1F5;
+  color: #0E6E8C;
+  font-size: 24rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14rpx;
+  flex-shrink: 0;
+}
+
+.den.on .den-avatar {
+  background: #0E6E8C;
+  color: #fff;
+}
+
+.den-name {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #17222B;
+}
+
+.den-meta {
+  font-size: 20rpx;
+  color: #98A4AC;
+  margin-top: 2rpx;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24rpx;
+  margin-right: -16rpx;
+}
+
+.slot {
+  width: calc((100% - 64rpx) / 4);
+  height: 84rpx;
+  margin: 0 16rpx 16rpx 0;
+  border-radius: 14rpx;
+  border: 1rpx solid #DDE5E9;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #17222B;
+}
+
+.slot.on {
+  border-color: #0E6E8C;
+  background: #0E6E8C;
+  color: #fff;
+  font-weight: 500;
+}
+
+.full {
+  text-align: center;
+  font-size: 24rpx;
+  color: #A9B4BB;
+  padding: 32rpx 0 8rpx;
+}
+
+.notice {
+  font-size: 22rpx;
+  color: #A9B4BB;
+  line-height: 1.7;
+  padding: 0 8rpx;
+}

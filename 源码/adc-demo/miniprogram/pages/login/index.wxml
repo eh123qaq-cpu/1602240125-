@@ -1,0 +1,52 @@
+<view class="login">
+  <view class="brand">
+    <view class="logo">{{brand}}</view>
+    <view class="brand-name">{{appName}}</view>
+    <view class="brand-sub">课程作业 · 业务流程演示</view>
+  </view>
+
+  <view class="form-card">
+    <view class="form-title">选择一个演示身份</view>
+    <view class="form-sub">全部为虚构档案，无需填写姓名或手机号</view>
+
+    <view class="id-list" wx:if="{{!loading && !error}}">
+      <view
+        class="id-item {{entering === item._id ? 'on' : ''}}"
+        wx:for="{{list}}"
+        wx:key="_id"
+        data-id="{{item._id}}"
+        bindtap="pick"
+      >
+        <view class="id-avatar">{{item.name}}</view>
+        <view class="id-main">
+          <view class="id-name">{{item.name}}</view>
+          <view class="id-tags">
+            <text class="id-tag" wx:for="{{item.tags}}" wx:for-item="t" wx:key="*this">{{t}}</text>
+          </view>
+        </view>
+        <view class="id-go">{{entering === item._id ? '进入中…' : '进入'}}</view>
+      </view>
+    </view>
+
+    <view class="id-state" wx:if="{{loading}}">正在加载演示身份…</view>
+    <view class="id-state" wx:if="{{!loading && error}}">
+      {{error}}
+      <text class="link" catchtap="load"> 重试</text>
+    </view>
+
+    <view class="agree" bindtap="toggleAgree">
+      <view class="checkbox {{agreed ? 'checked' : ''}}">
+        <view class="tick" wx:if="{{agreed}}"></view>
+      </view>
+      <view class="agree-text">
+        我已阅读并同意
+        <text class="link" catchtap="openPolicy">《演示须知与隐私说明》</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="foot">
+    <view class="foot-line">点击任一身份即可进入演示，不需要注册</view>
+    <view class="foot-line">不收集你的姓名、手机号，仅用微信匿名标识区分演示身份</view>
+  </view>
+</view>

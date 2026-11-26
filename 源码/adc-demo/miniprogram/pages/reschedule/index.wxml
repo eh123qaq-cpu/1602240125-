@@ -1,0 +1,80 @@
+<view class="page rs">
+
+  <block wx:if="{{target}}">
+    <!-- 原预约 -->
+    <view class="cur">
+      <view class="cur-label">当前预约</view>
+      <view class="cur-main">{{target.dateText}} {{target.weekText}} {{target.start}}</view>
+      <view class="cur-sub">{{target.clinic_name}} · {{target.dentist_name}} 医生</view>
+      <view class="cur-tip">改约后原记录会保留并标记为「已改约」，不会删除</view>
+    </view>
+
+    <!-- 日期 -->
+    <view class="section-title">选择新日期</view>
+    <scroll-view class="date-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+      <view
+        class="date {{activeDate === item.date ? 'on' : ''}}"
+        wx:for="{{dates}}"
+        wx:key="date"
+        data-date="{{item.date}}"
+        bindtap="onDate"
+      >
+        <text class="date-week">{{item.week}}</text>
+        <text class="date-day">{{item.day}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 牙医 -->
+    <view class="card">
+      <view class="card-hd">
+        <text class="card-title">选择牙医</text>
+      </view>
+
+      <skeleton wx:if="{{loading}}" type="line" rows="2"></skeleton>
+
+      <block wx:elif="{{groups.length}}">
+        <scroll-view class="den-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+          <view
+            class="den {{dentistIndex === index ? 'on' : ''}}"
+            wx:for="{{groups}}"
+            wx:key="dentist_id"
+            data-i="{{index}}"
+            bindtap="onDentist"
+          >
+            <view class="den-avatar">{{item.initial}}</view>
+            <view>
+              <view class="den-name">{{item.dentist_name}}</view>
+              <view class="den-meta">{{item.free}} 空位</view>
+            </view>
+          </view>
+        </scroll-view>
+
+        <view class="slots">
+          <view
+            class="slot {{selected && selected.start === item.start ? 'on' : ''}}"
+            wx:for="{{slots}}"
+            wx:key="start"
+            data-start="{{item.start}}"
+            bindtap="pickSlot"
+          >{{item.start}}</view>
+        </view>
+
+        <view class="full" wx:if="{{!slots.length}}">该牙医当天已约满</view>
+      </block>
+
+      <empty-state wx:else text="当天没有可约时段" sub="换一天试试"></empty-state>
+    </view>
+
+    <view class="notice">
+      提交后会再次校验新时段，若已被占用原预约仍然有效。
+    </view>
+  </block>
+
+  <view class="fixed-bar" wx:if="{{target}}">
+    <button class="btn btn-ghost btn-auto" bindtap="cancel">返回</button>
+    <button class="btn btn-main" bindtap="submit" disabled="{{!selected || submitting}}">
+      {{submitting ? '提交中…' : (selected ? '改到 ' + selected.start : '请选择时段')}}
+    </button>
+  </view>
+
+</view>

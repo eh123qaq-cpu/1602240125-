@@ -1,0 +1,395 @@
+.book {
+  /* 底部要给「提交栏 + 自定义 tabBar」两层留出空间，否则最后一屏内容会被挡住 */
+  padding-bottom: calc(300rpx + env(safe-area-inset-bottom));
+}
+
+/* 版本水印：真机一眼分辨跑的是哪一版，排查体验版缓存用 */
+.ver-banner {
+  margin: 0 0 20rpx;
+  padding: 14rpx 20rpx;
+  border-radius: 14rpx;
+  background: #E7F1F5;
+  color: #0A5468;
+  font-size: 22rpx;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ------------------------------ 门店切换 ------------------------------ */
+
+.seg {
+  display: flex;
+  margin-bottom: 24rpx;
+}
+
+.seg-item {
+  flex: 1;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 22rpx 24rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.18s ease;
+}
+
+.seg-item + .seg-item {
+  margin-left: 16rpx;
+}
+
+.seg-item.on {
+  border-color: #0E6E8C;
+  background: #F2FAFC;
+  box-shadow: 0 4rpx 16rpx rgba(14, 110, 140, 0.1);
+}
+
+.seg-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #4E5D68;
+}
+
+.seg-item.on .seg-name {
+  color: #0A5468;
+}
+
+.seg-sub {
+  display: block;
+  font-size: 22rpx;
+  color: #A9B4BB;
+  margin-top: 4rpx;
+}
+
+/* ------------------------------ 日期 ------------------------------ */
+
+.date-scroll {
+  display: flex;
+  white-space: nowrap;
+  margin: 0 -28rpx 24rpx;
+  padding: 4rpx 28rpx 8rpx;
+}
+
+.date {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 104rpx;
+  height: 124rpx;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-right: 16rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.16s ease;
+}
+
+.date.on {
+  background: linear-gradient(160deg, #12819F, #0A5468);
+  box-shadow: 0 8rpx 20rpx rgba(14, 110, 140, 0.26);
+}
+
+.date-week {
+  font-size: 22rpx;
+  color: #98A4AC;
+}
+
+.date-day {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #17222B;
+  margin-top: 6rpx;
+  line-height: 1.1;
+}
+
+.date.on .date-week,
+.date.on .date-day {
+  color: #fff;
+}
+
+/* ------------------------------ 牙医 ------------------------------ */
+
+.den-scroll {
+  display: flex;
+  white-space: nowrap;
+  margin: 0 -32rpx;
+  padding: 0 32rpx;
+}
+
+.den {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 16rpx 20rpx;
+  border-radius: 18rpx;
+  margin-right: 16rpx;
+  border: 2rpx solid #EDF1F3;
+  background: #FBFCFD;
+  transition: all 0.16s ease;
+}
+
+.den.on {
+  border-color: #0E6E8C;
+  background: #F2FAFC;
+}
+
+.den-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background: #E7F1F5;
+  color: #0E6E8C;
+  font-size: 26rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14rpx;
+  flex-shrink: 0;
+}
+
+.den.on .den-avatar {
+  background: #0E6E8C;
+  color: #fff;
+}
+
+.den-name {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #17222B;
+  line-height: 1.2;
+}
+
+.den-meta {
+  font-size: 20rpx;
+  color: #98A4AC;
+  margin-top: 4rpx;
+}
+
+.den-quals {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+/* ------------------------------ 时段 ------------------------------ */
+
+.period {
+  margin-top: 28rpx;
+}
+
+.period-title {
+  font-size: 24rpx;
+  color: #7C8A95;
+  margin-bottom: 16rpx;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -16rpx;
+}
+
+.slot {
+  width: calc((100% - 64rpx) / 4);
+  height: 84rpx;
+  margin: 0 16rpx 16rpx 0;
+  border-radius: 14rpx;
+  border: 1rpx solid #DDE5E9;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #17222B;
+  transition: all 0.14s ease;
+}
+
+.slot.on {
+  border-color: #0E6E8C;
+  background: #0E6E8C;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 6rpx 16rpx rgba(14, 110, 140, 0.24);
+}
+
+.full {
+  text-align: center;
+  font-size: 24rpx;
+  color: #A9B4BB;
+  padding: 40rpx 0 8rpx;
+}
+
+/* ------------------------------ 就诊人 ------------------------------ */
+
+.patient {
+  display: flex;
+  align-items: center;
+  padding: 4rpx 0 20rpx;
+}
+
+.p-avatar {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  background: #E7F1F5;
+  color: #0E6E8C;
+  font-size: 30rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.p-name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.p-sub {
+  font-size: 22rpx;
+  color: #98A4AC;
+  margin-top: 4rpx;
+}
+
+.field-input.is-ph {
+  color: #C1CAD0;
+  font-size: 28rpx;
+}
+
+.special {
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 1.6;
+  min-height: 96rpx;
+  padding: 4rpx 0;
+  color: #17222B;
+}
+
+.notice {
+  font-size: 22rpx;
+  color: #A9B4BB;
+  line-height: 1.7;
+  padding: 8rpx 8rpx 0;
+}
+
+/* ------------------------------ 底栏 ------------------------------ */
+
+.bar-slot {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #0E6E8C;
+  line-height: 1.2;
+}
+
+.bar-sub {
+  font-size: 20rpx;
+  color: #98A4AC;
+  margin-top: 2rpx;
+}
+
+.bar-empty {
+  font-size: 26rpx;
+  color: #A9B4BB;
+}
+
+/* ------------------------------ 预约信息核对弹层 ------------------------------ */
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* 让出自定义 tabBar 的高度：tabBar 是 bottom:0 / z-index:100 的固定层，
+     弹层若贴到底会被它整个盖住，底部的「确认提交」就点不到了 */
+  bottom: calc(106rpx + env(safe-area-inset-bottom));
+  z-index: 300;
+  background: rgba(16, 30, 38, 0.5);
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 28rpx 28rpx 0 0;
+  padding: 36rpx 32rpx 32rpx;
+}
+
+.sheet-hd {
+  margin-bottom: 24rpx;
+}
+
+.sheet-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #17222B;
+}
+
+.sheet-sub {
+  display: block;
+  font-size: 22rpx;
+  color: #98A4AC;
+  line-height: 1.6;
+  margin-top: 8rpx;
+}
+
+.sheet-rows {
+  background: #F7FAFB;
+  border-radius: 18rpx;
+  padding: 8rpx 24rpx;
+  margin-bottom: 28rpx;
+}
+
+.sheet-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #EDF1F3;
+}
+
+.sheet-row:last-child {
+  border-bottom: none;
+}
+
+.sheet-k {
+  width: 160rpx;
+  flex-shrink: 0;
+  font-size: 26rpx;
+  color: #7C8A95;
+}
+
+.sheet-v {
+  flex: 1;
+  font-size: 26rpx;
+  color: #17222B;
+  text-align: right;
+  word-break: break-all;
+}
+
+.sheet-v.strong {
+  color: #0E6E8C;
+  font-weight: 600;
+}
+
+.sheet-btns {
+  display: flex;
+}
+
+.sheet-btns .btn {
+  flex: 1;
+}
+
+.sheet-btns .btn + .btn {
+  margin-left: 16rpx;
+}
+
+/* 预约页是 tabBar 页面：全局 .fixed-bar 是 bottom:0，会被自定义 tabBar（同样 bottom:0、
+   z-index:100）整个盖住，导致「核对并确认预约」按钮看不见也点不到。这里整体上移一个 tabBar 高度。 */
+.fixed-bar {
+  bottom: calc(106rpx + env(safe-area-inset-bottom));
+  padding-bottom: 16rpx;
+}

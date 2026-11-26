@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "ADC 课程演示",
+  "navigationBarBackgroundColor": "#0E6E8C",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light"
+}

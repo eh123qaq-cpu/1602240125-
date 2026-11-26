@@ -1,0 +1,17 @@
+.st {
+  display: inline-flex;
+  align-items: center;
+  height: 40rpx;
+  padding: 0 16rpx;
+  border-radius: 10rpx;
+  font-size: 22rpx;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.st-blue { background: #E7F1F5; color: #0E6E8C; }
+.st-green { background: #E4F3EE; color: #0F7A5F; }
+.st-amber { background: #FBF0D8; color: #9A6400; }
+.st-red { background: #FBE9E5; color: #BF4331; }
+.st-gray { background: #EFF2F4; color: #61707B; }
